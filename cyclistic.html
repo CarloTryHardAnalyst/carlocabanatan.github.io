@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CYCLISTIC CASE STUDY</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Carlo Cabanatan</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="cyclistic.html">GOOGLE DATA ANALYTICS CAPSTONE:
+								CYCLISTIC CASE STUDY</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/johncarlocabanatan/" class="icon brands alt fa-linkedin"><span class="label">linkedin</span></a></li>
+							<li><a href="https://github.com/CarloTryHardAnalyst" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>GOOGLE DATA ANALYTICS CAPSTONE:<br />
+										CYCLISTIC CASE STUDY</h1>
+									<p>Case Study: How Does a Bike-Share Navigate Speedy Success?</p>
+								</header>
+								<div class="image main"><img src="images/bike1.png" alt="" /></div>
+								<p><b>INTRODUCTION</b></p>
+								<p>Welcome to the Cyclistic bike-share analysis case study. This case study represents the Capstone Project of the Google Data Analytics 
+									Professional Certificate. In this case study, I will work as a Junior Data Analyst for a fictional company called Cyclistic. </p>
+								<p>Cyclistic is a fictional bike-share company in Chicago. Lily Moreno, the director of marketing, believes the company’s future success 
+										depends on maximizing the number of annual memberships. Rather than creating a marketing campaign that targets all-new customers, 
+										Moreno believes there is a very good chance to convert casual riders into members.</p>
+								<p>Moreno has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. In order to
+										do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ, why
+										casual riders would buy a membership, and how digital media could affect their marketing tactics. Moreno and her team are
+										interested in analyzing the Cyclistic historical bike trip data to identify trends.</p>
+								<p><b>ASK</b></p>	
+								<p><i><b>What is the business task?</b></i></p>
+								<p>Three questions will guide the future marketing program:<br />
+									1. How do annual members and casual riders use Cyclistic bikes differently?<br />
+									2. Why would casual riders buy Cyclistic annual memberships?<br />
+									3. How can Cyclistic use digital media to influence casual riders to become members?</p>
+								<p>I am assigned to answer the first question: How do annual members and casual riders use Cyclistic bikes
+									differently?</p>
+								<p><i><b>Who are the stakeholders?</b></i></p>
+								<p>The key stakeholders will include the Cyclistic executive team, the director of marketing, and the marketing analyst team.</p>
+								<p><b>PREPARE</b></p>
+								<p><i><b>Where is the data located?</b></i></p>	
+								<p>Cyclistic provided the data which can be downloaded <a href="https://divvy-tripdata.s3.amazonaws.com/index.html"> <b>here</b></a>. I will 
+									be using the previous 12 months of Cyclistic trip data (March 2022 - February 2023). Upon download, the local files is housed in a 
+									seperate folder in a drive in my laptop.</p>
+								<p><i><b>How is the data organized?</b></i></p>
+								<p>The Cyclistic trip data is split into 12 .csv files, one for each month, which all consist of 13 columns. It includes <b>ride_id, 
+									rideable_type, started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng,
+								end_lat, end_lng,</b> and <b>member_casual</b>.</p>	
+								<p><i><b>How are you addressing licensing, privacy, security, and accessibility? How did you verify the data’s integrity?</b></i></p>
+								<p>For the purposes of this case study, the datasets are appropriate and will enable you to answer the business questions. The data has 
+									been made available by Motivate International Inc. under this <a href="https://ride.divvybikes.com/data-license-agreement"> <b>license</b></a>. 
+									This is public data that you can use to explore how different customer types are using Cyclistic bikes. But note that data-privacy 
+									issues prohibit you from using riders’ personally identifiable information. This means that you won’t be able to connect pass 
+									purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or if they have purchased multiple 
+									single passes.</p>
+								<p><i><b>How does it help you answer your question?</b></i></p>
+								<p>By using these datasets we will see the behavior casual riders and members in renting bikes like:<br/> <b>What time or day do they use a bike?
+									<br/>Do they use bike everyday for the whole year or does it depend on season?<br/> How long do they rent the bike?</b><br/> These are 
+									just some of the questions we can answer from these datasets which can help us get some insights on the difference between a casual
+									rider and a member.	</p>
+								<p><b>PROCESS/ANALYZE</b></p>
+								<p><i><b>What tools are you choosing and why?</b></i></p>
+								<p>I will be using SQLite on DB browser for cleaning, processing, and analyzing the data as it will be much faster compared to using 
+									excel.</p>
+								<p><i><b>What steps have you taken in your data cleaning process?</b></i></p>
+								<p>The following steps is how I cleaned my dataset:<br/>
+									1. I imported the 12 .csv files I downloaded earlier to db browser.<br/>
+									2. Ensure values of ended_at column is greater than values of started_at column. Remove rows with values of started_at > values of ended_at. This is to ensure we will not get a negative trip duration<br/>
+									3. Check every column for null values then remove rows with null values.<br/>
+									4. Exclude columns start_lat, start_lng, end_lat, end_lng, start_station_id, end_station_id, end_station_name as start_station_name will suffice to locate stations.<br>
+								</p>
+								<p><i><b>How did you organize and format your data to perform analysis on it?</b></i></p>
+								<p>After cleaning the dataset I tried to add columns out of the data I have. The following steps is how I format my dataset:<br/>
+									1. I used <b>strftime(%m, )</b> function to get the month using the values at started_at column. This will return as number (01-12. Jan being 01 and 12, Dec), so I used <b>Case</b> statement to replace number with corresponding month. I labeled this column as <b>Month</b><br/>
+									2. I used <b>strftime(%w, )</b> function to get the day of the week using the values of started_at column and ended_at column. This will return as number (0-6. Sun being 0 and Sat, 6), so I used <b>Case</b> statement to replace number with corresponding day of the week. I labeled the columns as <b>Day_Borrowed</b> and <b>Day_Returned</b>, respectively.<br/>
+									3. I used <b>substr()</b> function to get the hour of the day using the values of started_at column. This will return 0-23 values corresponding to every hour of the day. I labeled the column <b>Hour_Borrowed</b>.<br/>
+									4. I subtracted values of started_at column to values of ended_at column by using <b>julianday()</b> functionto get duration of trips. The value returned will be in days so I converted it to minutes by multiplying it to 1440. I also used <b>round()</b> function to limit it at two decimal places. I labeled this column as <b>Trip_Duration.</b></p>
+								<p> For the whole cleaning and processing of the dataset you can check it in my <a href="https://github.com/CarloTryHardAnalyst/Cyclistic-case-study/blob/main/tripdata_processed.sql"> <b>Github account</b></a>.</p>
+								<p><b><i>What trends or relationships did you find in the data? What surprises did you discover in the data?</i></b></p>
+								<p><div class='tableauPlaceholder' id='viz1680677580411' style='position: relative'><noscript><a href='#'><img alt='Total rides ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;copy3_16806771947040&#47;Totalrides&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='copy3_16806771947040&#47;Totalrides' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;copy3_16806771947040&#47;Totalrides&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1680677580411');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='977px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></p>
+								<p>1. Cyclistic has more member riders compared to casual riders.<br/>
+								2. Casual riders rides less during the weekdays and more during weekends compared to member riders.<br/> 
+								3. There is a significant difference in number of rides between casual and member riders during weekdays.<br/>
+								4. Cyclistic see increase in number of rides, both casual and member, during March to May. Most significant during May.<br/>
+								5. Both number of casual and member rides peak during June to August.<br/>
+								6. Both number of casual and member rides see decline during September to November.<br/>
+								7. Both casual and member rides have lowest number during December to February.<br/>
+								8. Number of member rides are significantly more during 6am - 9am and 4pm - 6pm compared to casual rides.</p>
+								<p><div class='tableauPlaceholder' id='viz1680677622675' style='position: relative'><noscript><a href='#'><img alt='Avg Duration ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;copy4&#47;AvgDuration&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='copy4&#47;AvgDuration' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;copy4&#47;AvgDuration&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1680677622675');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='977px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></p>
+								<p>1. Duration of member rides are more consistent compared to duration of casual rides.<br/>
+								2. Casual rides are significantly longer compared to member rides.<br/>
+								3. There are increase in duration of trips during weekends both member and casual rides. though it is more pronounced in casual rides.<br/>
+								4. Rentals made by casual riders before 5am are the longest, while the shortest are made between 6am - 9am.<br/>
+								5. Rentals made by member riders are almost consistent throughout the whole day.</p>
+								<p><div class='tableauPlaceholder' id='viz1680718597868' style='position: relative'><noscript><a href='#'><img alt='Dashboard 4 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;copy5&#47;Dashboard4&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='copy5&#47;Dashboard4' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;co&#47;copy5&#47;Dashboard4&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1680718597868');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='650px';vizElement.style.height='277px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script></p>
+								<p>1. Classic bike is noticeably preferred by member riders, while casual riders did not have notable preference between classic and electric bike.<br/>
+								2. Only casual riders are recorded in docked bike. </p>
+								<p><i><b>What story does your data tell?</b></i></p>
+								<p>1. A big portion of casual riders only rent bike once a day.<br/>
+								- If we look into the graph for Total No. of Trips per Hour of the Day, total rides at 4pm - 6pm is almost three times of 7am - 9am. These times are likely to be clocking out and in at work, respectively.<br/>
+								- Trips during 7am - 9am are shorter (<27 mins), followed by 4pm - 6pm (27-30 mins). The rest, >30 mins. These might mean majority of riders during 7am - 9am are bound to go to work, riders during 4pm - 6pm are combination of those bound to go home from work and those who are riding for leisure, while the rest of the day majority of rides are for leisure. This seems plausible as we can see in the graph for Total No. of Trips per Hour of the Day, during 4pm - 6pm have the most rides thoughout the day (rides for commute + rides for leisure).</p>
+								<p>2. Members are prioritized when choosing the type of bike.<br/>
+								- as we can see in the graph for Total No. of Trips based on Bike Type, only casual riders have record in docked bike. This might mean that the casual rider's bike choice is not available so he can only rent whatever bike is available. This might also explain why there is no significant difference between casual riderss preferred bike type while member riders' preference is notable.</p>
+								<p><b>ACT</b></p>
+								<P><b><i>What is your final conclusion based on your analysis?</i></b></P>
+								<p>In my view of the case study, differentiating how members and casual riders use Cyclistic bikes is not enough to answer whether we should push through the plan to design marketing strategies aimed at converting casual riders into annual members. We do not have information about our customers aside from their biking habits. We don't know if they can afford an annual membership, we don't know if they are residents or just tourists. But I have formulated questions that might help us decide whether to push through or not.</p>
+								<p>1. Will it be worth it to purchase annual membership even if you only rent bike once a day?<br/>
+								2. Is being prioritized in choosing preferred bike type enough of a benefit for a casual rider to purchase annual membership?</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
